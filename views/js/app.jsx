@@ -3,6 +3,7 @@ const AUTH0_DOMAIN = "dev-hxp53qi6.us.auth0.com";
 const AUTH0_CALLBACK_URL = location.href;
 const AUTH0_API_AUDIENCE = "http://13.235.39.98:8080/";
 const REACT_APP_URL=window.Configs.APP_URL
+const REACT_APP_LIKE_URL=window.Configs.APP_LIKE_URL
 class App extends React.Component {
   parseHash() {
     this.auth0 = new auth0.WebAuth({
@@ -191,7 +192,7 @@ class Joke extends React.Component {
     'type': "POST",
     'crossDomain': true,
     'global': false,
-    'url': REACT_APP_URL+"/api/jokes/like/" + joke.id,
+    'url': REACT_APP_LIKE_URL+"/api/jokes/like/" + joke.id,
     'data': { like: 1},
     'success': function (data) {
         console.log("res... ", data);
